@@ -25,16 +25,21 @@ Enemy.prototype.render = function() {
 
 // ** create player class 
 
-const Player = function() {
+var Player = function() {
 	
 }
+
+// This class requires an update(), render() and
+// a handleInput() method.
+
+//*** starting to create 
+Player.prototype.update = function() {
+ 
+};
 
 // *** create instance of player
 
 var player = new Player();
-
-// This class requires an update(), render() and
-// a handleInput() method.
 
 // *** define allEnemies array 
 var allEnemies = [];
