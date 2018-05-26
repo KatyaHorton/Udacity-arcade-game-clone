@@ -19,6 +19,7 @@ var Engine = (function (global) {
      * set the canvas elements height/width and add it to the DOM.
      */
     var doc = global.document,
+		container = doc.getElementById('container'),
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
@@ -26,7 +27,8 @@ var Engine = (function (global) {
 
     canvas.width = 505;
     canvas.height = 706;
-    doc.body.appendChild(canvas);
+    container.appendChild(canvas);
+
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
