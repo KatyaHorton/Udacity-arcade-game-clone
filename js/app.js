@@ -1,22 +1,8 @@
-/* -------------------- NOTES FOR ME: 
 
-1. Time the game 
-
-2. Smth happens when you win
-
-3. Smth happens when you lose
-
-4. Chose your caracter 
-
-5. Cats? 
-
-*/
 
 const startPosition = function() {
 		player.x = 202;
 	     player.y = 490;
-	
-	
 }
 class Enemy {
 	constructor (x, y, speed) {
@@ -39,6 +25,8 @@ class Enemy {
 		 player.y < this.y + 60 && 
 		 60 + player.y > this.y) {
 		 startPosition();
+		 loseDivAppear();
+		clearInterval(handle);
 	}
 }
 
@@ -50,6 +38,16 @@ class Enemy {
 
 //---------------------------
 
+	document.addEventListener('keyup', function(e) {
+    const allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down'
+    };
+
+    player.handleInput(allowedKeys[e.keyCode]);
+});
 
 class Player{
 	constructor(x, y) {
@@ -82,11 +80,14 @@ class Player{
 	if (keyPress == 'down' && this.y < 405) {
 		this.y +=83;
 	}
+	
 	// wining game 
 	if (this.y < 0) {
+		clearInterval(handle);
 		setTimeout(function(){
 		startPosition();
-		winDivAppear();
+		winDivAppear();	
+		winTime.innerText = timer.innerText;
 		}, 1000);
 	
 		
@@ -98,7 +99,7 @@ const enemyLocation = [63, 144, 230, 317, 400];
 
 enemyLocation.forEach(function(locY){
 
-const enemy = new Enemy(0, locY, 100 + Math.floor(Math.random() * 300));		
+const enemy = new Enemy(0, locY, 100 + Math.floor(Math.random() * 200));		
 allEnemies.push(enemy);
 })
 
@@ -112,30 +113,30 @@ const restartButton = document.getElementById('restart');
 const cont = document.getElementById('container');
 let minutes = 0;
 let seconds = 1;
-
-
+let handle;
+let winTime = document.getElementById('winTime');
 function startTime() {
-setInterval(function(){
-		timer.innerText = minutes + ' min : ' + seconds + ' sec';
+	clearInterval(handle);
+	handle = setInterval(function(){
+	timer.innerText = minutes + ' min : ' + seconds + ' sec';
 		seconds++;
 		if (seconds == 60) {
 			minutes++;
 			seconds = 0;		
 }}, 1000);
+
 };
 
-function resetTime(callBack) {
-	clearInterval(callBack);
-	callBack();
+function resetTime() {
+	startTime();
 	minutes = 0;
     seconds = 1;
 }; 
 
 
 function displayCanvas() {
-	cont.style.display = 'block';
 	timer.innerText = "0 min: 0 sec";
-	resetTime(startTime);
+	resetTime();
 	startPosition();
 	restartButton.innerText = "RESTART";
 };
@@ -146,36 +147,116 @@ function restartAfterWin() {
 	
 }
 
+function loseRestart() {
+	displayCanvas();
+	winDivDissapear();
+	loseDiv.style.zIndex = 1;
+}
+
+
 restartButton.addEventListener('click', displayCanvas);
 restartAgain.addEventListener('click', restartAfterWin);
+restartAfterLose.addEventListener('click', loseRestart);
 //_________________________________
 
 
-document.addEventListener('keyup', function(e) {
-    const allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
-    };
 
-    player.handleInput(allowedKeys[e.keyCode]);
-});
 
 
 //-------------------------- WIN DIV
 
 
-const winDiv= document.getElementById('winDiv');
+const winLoseContainer= document.getElementById('winLoseContainer');
 
 function winDivAppear() {
 	
-	winDiv.style.transform = "translate(0, 0)";
+	winLoseContainer.style.transform = "translate(0, 0)";
 };
 
 function winDivDissapear() {
-	winDiv.style.transform = "translate(0, -890px)";
+	winLoseContainer.style.transform = "translate(0, -890px)";
 }
+
+
+//----------------------- LOSE DIV
+
+const loseDiv = document.getElementById('loseDiv');
+
+function loseDivAppear() {
+	winDivAppear();
+	loseDiv.style.zIndex = 11;
+	winLoseContainer.style.transition = "0.5s";
+}
+
+
+//----------------------chose the player
+
+const prince = document.getElementById('prince');
+const princess = document.getElementById('princess');
+const cat = document.getElementById('cat');
+const choosePlayerContainer = document.getElementById('choosePlayerContainer');
+const winText = document.getElementById('winText');	
+const begenningText = document.getElementById('begenningText');
+
+
+ function choosePlayerFunction(playerImg, playerDiv, winT, removeDiv1, removeDiv2) {
+		
+	 	playerDiv.style.backgroundColor = 'antiquewhite';
+	 	player.player = playerImg;
+	 	winText.innerText = winT;
+	 	removeDiv1.style.display = 'none';
+	   	removeDiv2.style.display = 'none';
+	 	playerDiv.style.width= '100%';
+	 	begenningText.innerText = 'Good luck!';
+	 setTimeout(function() {
+		choosePlayerContainer.style.display = "none";},	   
+			   3000)
+} 
+
+ prince.addEventListener('click', function(){
+	 choosePlayerFunction('images/char-boy.png', prince, 'Prince', princess, cat)});
+
+ princess.addEventListener('click', function(){
+	 choosePlayerFunction('images/char-princess-girl.png', princess, 'Princess', prince, cat)});
+
+cat.addEventListener('click', function(){
+	 choosePlayerFunction('images/char-cat.png', cat, 'Cat', prince, princess) });
+
+//---------------------------------
+
+class Iceberg {
+	constructor (x, y) {
+	this.x = x;
+	this.y = y;
+	this.iceberg = 'images/Rock.png';
+	}
+	
+		update(dt) {
+}
+	
+	render() {
+    ctx.drawImage(Resources.get(this.iceberg), this.x, this.y);
+}	
+}
+
+
+const allIcebergs = [];
+const icebergLocation = [0, 100, 200, 300, 400];
+
+icebergLocation.forEach(function(locX){
+	const iceberg = new Iceberg(locX, -25);
+	allIcebergs.push(iceberg);
+})
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,7 @@ var Engine = (function (global) {
 
     canvas.width = 505;
     canvas.height = 706;
+	
     container.appendChild(canvas);
 
 
@@ -109,13 +110,13 @@ var Engine = (function (global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-            'images/grass-block.png',   // Top row is water
-            'images/water-block.png',   // Row 1 of 3 of stone
-            'images/water-block.png',   // Row 2 of 3 of stone
-            'images/water-block.png',   // Row 3 of 3 of stone
-            'images/water-block.png',   // Row 1 of 2 of grass
-            'images/water-block.png',   // Row 2 of 2 of grass
-			'images/stone-block.png'    // Row 2 of 2 of grass
+            'images/grass-block.png',   // Top row is grass
+            'images/water-block.png',   // Row 1 of 3 of water
+            'images/water-block.png',   // Row 2 of 3 of water
+            'images/water-block.png',   // Row 3 of 3 of water
+            'images/water-block.png',   // Row 1 of 2 of water
+            'images/water-block.png',   // Row 2 of 2 of water
+			'images/stone-block.png'    // Row 2 of 2 of stone
 			
         ],
             numRows = 7,
@@ -156,8 +157,13 @@ var Engine = (function (global) {
         allEnemies.forEach(function (enemy) {
             enemy.render();
         });
-
+		
+		  allIcebergs.forEach(function (iceberg) {
+            iceberg.render();
+        });
+		
         player.render();
+	//	iceberg.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -177,7 +183,9 @@ var Engine = (function (global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/Rock.png',
-        'images/char-princess-girl.png'
+        'images/char-princess-girl.png', 
+		'images/char-cat.png', 
+		'images/char-boy.png'
     ]);
     Resources.onReady(init);
 

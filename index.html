@@ -7,26 +7,53 @@
 </head>
 <body>
 	
-
+	<div id="winLoseContainer">
 	
 	<div id="winDiv">
 	<p>CONGRATULATIONS!</p>
-	<p>You helped the Arctic walking-on-water-multiple-life-princess escape! </p>
+	<p>You helped the Arctic-walking-on-water-multiple-life-<span id="winText">princess</span> <br>escape from the castle and not getting killed by the icebergs! </p>
+	<p>Your time is <span id="winTime"></span></p>
 		<button id="restartAgain">Restart</button>
 	</div>
-
+		
+		<div id="loseDiv">	<p>YOU LOST </p>
+		<button id="restartAfterLose">Restart</button>
+			<p><img alt="facepalm" src="images/facepalm.png"></p>
+		</div>
+	</div>
 	
 	<header id="header">Arctic Princess</header>
 	
 	<div id="holder">
 	<div id="timer"></div>
 	<div id="container">
+		<div id="choosePlayerContainer">
+		<p id="begenningText">Chose player depending on your gender:</p>
+	
+		<div id="choosePlayer">
+		
+		<div class="player" id="prince">
+			<p>Prince (boy)</p>
+			<img class="imgPlayer" 	src="images/char-boy.png" alt="prince">
+		</div>
+			
+		<div class="player" id="princess">
+			<p>Princess (girl)</p>
+			<img class="imgPlayer" src="images/char-princess-girl.png" alt="princess">
+		</div>
+
+			<div class="player" id="cat">
+			<p>Cat (prefer not to say)</p>
+				<img class="imgPlayer" src="images/char-cat.png" alt="cat">
+		</div>
+				
+		</div>
+	</div>
 	</div>
 	</div>
 	<button id="restart">START</button>
 	
-	
-	
+
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
