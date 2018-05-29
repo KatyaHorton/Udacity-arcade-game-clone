@@ -162,6 +162,10 @@ var Engine = (function (global) {
             iceberg.render();
         });
 		
+		  allStars.forEach(function (star) {
+            star.render();
+        });
+		
         player.render();
 	//	iceberg.render();
     }
@@ -185,7 +189,8 @@ var Engine = (function (global) {
         'images/Rock.png',
         'images/char-princess-girl.png', 
 		'images/char-cat.png', 
-		'images/char-boy.png'
+		'images/char-boy.png',
+		'images/Star.png'
     ]);
     Resources.onReady(init);
 
@@ -194,4 +199,4 @@ var Engine = (function (global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
-})(this);
+}(this));

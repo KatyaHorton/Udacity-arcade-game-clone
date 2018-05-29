@@ -139,6 +139,9 @@ function displayCanvas() {
 	resetTime();
 	startPosition();
 	restartButton.innerText = "RESTART";
+	
+
+displayStars();
 };
 
 function restartAfterWin() {
@@ -247,6 +250,76 @@ icebergLocation.forEach(function(locX){
 	const iceberg = new Iceberg(locX, -25);
 	allIcebergs.push(iceberg);
 })
+
+
+
+//-----------------------------------
+
+class Stars {
+	constructor (x, y) {
+	this.x = x;
+	this.y = y;
+	this.star = 'images/Star.png';
+	}
+	
+		update(dt) {
+}
+	
+	render() {
+    ctx.drawImage(Resources.get(this.star), this.x, this.y);
+}	
+}
+
+
+const allStars = [];
+const starLocation = [75, 158, 241, 324, 407];
+const starLocationX = [-2, 100, 202, 304, 406]; 
+
+
+//--------------- SHUFFLE AN ARRAY
+
+function displayStars() {	
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+	}
+
+	shuffle(starLocationX); 
+
+	starLocation.forEach(function(locY){
+
+	const star = new Stars(starLocationX[Math.floor(Math.random() * 5)], locY);
+		
+	allStars.push(star);	
+	
+	});}
+	
+mainFunction();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
