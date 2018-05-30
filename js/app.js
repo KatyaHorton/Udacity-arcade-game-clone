@@ -225,7 +225,7 @@ const begenningText = document.getElementById('begenningText');
 cat.addEventListener('click', function(){
 	 choosePlayerFunction('images/char-cat.png', cat, 'Cat', prince, princess) });
 
-//---------------------------------
+//--------------------------------- DRAWING STONES
 
 class Iceberg {
 	constructor (x, y) {
@@ -253,7 +253,7 @@ icebergLocation.forEach(function(locX){
 
 
 
-//-----------------------------------
+//----------------------------------- DRAWING  STARS
 
 class Stars {
 	constructor (x, y) {
@@ -276,30 +276,25 @@ const starLocation = [75, 158, 241, 324, 407];
 const starLocationX = [-2, 100, 202, 304, 406]; 
 
 
-//--------------- SHUFFLE AN ARRAY
+//--------------- SHUFFLE STARS
 
 function displayStars() {	
-function shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-	}
 
-	shuffle(starLocationX); 
+	
 
 	starLocation.forEach(function(locY){
-
-	const star = new Stars(starLocationX[Math.floor(Math.random() * 5)], locY);
+		
+	const locX = starLocationX[Math.floor(Math.random() * 5)];
+	const star = new Stars(locX, locY);
 		
 	allStars.push(star);	
+		
 	
 	});}
-	
-mainFunction();
+		
 
 
+// After each reset I have to clear the stars and add new ones, but I dont know how to do it 
 
 
 

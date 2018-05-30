@@ -163,6 +163,7 @@ var Engine = (function (global) {
         });
 		
 		  allStars.forEach(function (star) {
+			  
             star.render();
         });
 		
