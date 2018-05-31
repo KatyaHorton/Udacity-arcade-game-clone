@@ -98,7 +98,11 @@ var Engine = (function (global) {
         });
 	
         player.update();
+//---- tryin to check if stars are updated 
 		
+		allStars.forEach(function (star) {
+			star.update();
+		});
 	
     }
 
@@ -166,8 +170,7 @@ var Engine = (function (global) {
         });
 		
 		  allStars.forEach(function (star) {
-			  
-            star.render();
+			   star.render();
         });
 		
         player.render();

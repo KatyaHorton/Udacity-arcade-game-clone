@@ -18,7 +18,7 @@ class Enemy {
 	
 	update(dt) {
 	this.x += this.speed * dt;
-
+		
 	if (this.x > 510) {
 		this.x = -100;
 		this.speed = 10 + Math.floor(Math.random() * 300);
@@ -61,6 +61,7 @@ class Player{
 	}
 	
 	update(dt) {
+		
 }
 	
 	render() {
@@ -247,6 +248,7 @@ class Iceberg {
 	
 		update(dt) {
 		
+			
 }
 	
 	render() {
@@ -281,13 +283,11 @@ class Stars {
 	this.y = y;
 	this.star = 'images/Star.png';
 	}
-	
+//---- tryin to check if stars are updated 
 		update(dt) {
-		if (this.x === player.x &&
-			   	this.y === player.y) {
-				alert('hi');
-			}	
-		
+		 
+			console.log('stars update');
+			
 		}
 	
 		
