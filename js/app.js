@@ -246,6 +246,7 @@ class Iceberg {
 	}
 	
 		update(dt) {
+		
 }
 	
 	render() {
@@ -282,10 +283,18 @@ class Stars {
 	}
 	
 		update(dt) {
-	}
+		if (this.x === player.x &&
+			   	this.y === player.y) {
+				alert('hi');
+			}	
+		
+		}
+	
+		
 	
 	render() {
     ctx.drawImage(Resources.get(this.star), this.x, this.y);
+		
 }	
 }
 
