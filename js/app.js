@@ -4,6 +4,10 @@ const startPosition = function() {
 		player.x = 202;
 	     player.y = 490;
 }
+
+
+//------------- CLASS ENEMIES
+
 class Enemy {
 	constructor (x, y, speed) {
 	this.x = x;
@@ -17,7 +21,7 @@ class Enemy {
 
 	if (this.x > 510) {
 		this.x = -100;
-		this.speed = 100 + Math.floor(Math.random() * 300);
+		this.speed = 10 + Math.floor(Math.random() * 300);
 	}
 	
 	if ( player.x < this.x + 80 &&
@@ -26,7 +30,7 @@ class Enemy {
 		 60 + player.y > this.y) {
 		 startPosition();
 		 loseDivAppear();
-		clearInterval(handle);
+		 clearInterval(handle);
 	}
 }
 
@@ -178,6 +182,7 @@ function winDivAppear() {
 
 function winDivDissapear() {
 	winLoseContainer.style.transform = "translate(0, -890px)";
+	winLoseContainer.style.transition = "1s";
 }
 
 
@@ -188,31 +193,37 @@ const loseDiv = document.getElementById('loseDiv');
 function loseDivAppear() {
 	winDivAppear();
 	loseDiv.style.zIndex = 11;
-	winLoseContainer.style.transition = "0.5s";
+	winLoseContainer.style.transition = "0s";
 }
 
 
 //----------------------chose the player
 
-const prince = document.getElementById('prince');
+const prince = document.querySelector('#prince');
 const princess = document.getElementById('princess');
 const cat = document.getElementById('cat');
-const choosePlayerContainer = document.getElementById('choosePlayerContainer');
+const choosePlayerContainer =document.getElementById('choosePlayerContainer');
 const winText = document.getElementById('winText');	
 const begenningText = document.getElementById('begenningText');
-
+const ifYous = document.querySelectorAll('.ifYou');
 
  function choosePlayerFunction(playerImg, playerDiv, winT, removeDiv1, removeDiv2) {
-		
+	 
+	 for (const ifYou of ifYous) {
+	 	ifYou.innerText = 'THE';
+	 	};
+	 
 	 	playerDiv.style.backgroundColor = 'antiquewhite';
 	 	player.player = playerImg;
 	 	winText.innerText = winT;
 	 	removeDiv1.style.display = 'none';
 	   	removeDiv2.style.display = 'none';
-	 	playerDiv.style.width= '100%';
-	 	begenningText.innerText = 'Good luck!';
-	 setTimeout(function() {
-		choosePlayerContainer.style.display = "none";},	   
+	 	begenningText.innerText = 'You have selected:';
+	 	setTimeout(function() {
+		choosePlayerContainer.style.display = "none";
+		restartButton.style.display = 'inline';
+			
+		},	   
 			   3000)
 } 
 
@@ -255,6 +266,14 @@ icebergLocation.forEach(function(locX){
 
 //----------------------------------- DRAWING  STARS
 
+
+let allStars = [];
+const starLocation = [75, 158, 241, 324, 407];
+const starLocationX = [-2, 100, 202, 304, 406]; 
+
+
+//-------------------CLASS STARS
+
 class Stars {
 	constructor (x, y) {
 	this.x = x;
@@ -263,7 +282,7 @@ class Stars {
 	}
 	
 		update(dt) {
-}
+	}
 	
 	render() {
     ctx.drawImage(Resources.get(this.star), this.x, this.y);
@@ -271,27 +290,27 @@ class Stars {
 }
 
 
-const allStars = [];
-const starLocation = [75, 158, 241, 324, 407];
-const starLocationX = [-2, 100, 202, 304, 406]; 
-
 
 //--------------- SHUFFLE STARS
 
 function displayStars() {	
 
-	
+	allStars = [];
 
 	starLocation.forEach(function(locY){
 		
 	const locX = starLocationX[Math.floor(Math.random() * 5)];
 	const star = new Stars(locX, locY);
 		
-	allStars.push(star);	
+	allStars.push(star);
 		
 	
 	});}
-		
+
+
+
+//--- STARS/PLAYER COLLISION 
+
 
 
 // After each reset I have to clear the stars and add new ones, but I dont know how to do it 
