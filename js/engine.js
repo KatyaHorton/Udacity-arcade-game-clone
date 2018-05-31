@@ -101,7 +101,7 @@ var Engine = (function (global) {
 //---- tryin to check if stars are updated 
 		
 		allStars.forEach(function (star) {
-			star.update();
+			star.update(dt);
 		});
 	
     }

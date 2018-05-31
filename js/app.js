@@ -286,8 +286,9 @@ class Stars {
 //---- tryin to check if stars are updated 
 		update(dt) {
 		 
-			console.log('stars update');
-			
+			if (this.x === player.x && this.y === player.y) {
+				alert('hi');
+				}
 		}
 	
 		
