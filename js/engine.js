@@ -98,10 +98,14 @@ var Engine = (function (global) {
         });
 	
         player.update();
-//---- tryin to check if stars are updated 
+
 		
 		allStars.forEach(function (star) {
 			star.update(dt);
+		});
+		
+		allIcebergs.forEach(function (iceberg) {
+			iceberg.update(dt);
 		});
 	
     }
@@ -197,7 +201,12 @@ var Engine = (function (global) {
         'images/char-princess-girl.png', 
 		'images/char-cat.png', 
 		'images/char-boy.png',
-		'images/Star.png'
+		'images/Star.png',
+		'images/Blue.png',
+		'images/Key.png',
+		'images/Heart.png'
+		
+		
     ]);
     Resources.onReady(init);
 

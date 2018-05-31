@@ -3,6 +3,7 @@
 const startPosition = function() {
 		player.x = 202;
 	     player.y = 490;
+		grassAccess = 0;
 }
 
 
@@ -21,7 +22,7 @@ class Enemy {
 		
 	if (this.x > 510) {
 		this.x = -100;
-		this.speed = 10 + Math.floor(Math.random() * 300);
+		this.speed = 10 + Math.floor(Math.random() * 10);
 	}
 	
 	if ( player.x < this.x + 80 &&
@@ -78,7 +79,11 @@ class Player{
 		this.x +=102;
 	}
 	
-	if (keyPress == 'up' && this.y > 0) {
+	if (keyPress == 'up' && this.y > 80) {
+		this.y -=83;
+	}
+		
+	if (keyPress == 'up' && this.y > 0 && grassAccess === 5) {
 		this.y -=83;
 	}
 	
@@ -240,14 +245,20 @@ cat.addEventListener('click', function(){
 //--------------------------------- DRAWING STONES
 
 class Iceberg {
+	
+	
 	constructor (x, y) {
 	this.x = x;
 	this.y = y;
 	this.iceberg = 'images/Rock.png';
 	}
 	
+	
 		update(dt) {
-		
+			
+if (grassAccess === 5) {
+	this.iceberg = 'images/Heart.png';
+	}
 			
 }
 	
@@ -260,9 +271,16 @@ class Iceberg {
 const allIcebergs = [];
 const icebergLocation = [0, 100, 200, 300, 400];
 
+
+//------------------DISPLAY ICEBERGS 
+
+
+
 icebergLocation.forEach(function(locX){
 	const iceberg = new Iceberg(locX, -25);
 	allIcebergs.push(iceberg);
+	
+	
 })
 
 
@@ -276,6 +294,7 @@ const starLocationX = [-2, 100, 202, 304, 406];
 
 
 //-------------------CLASS STARS
+let grassAccess = 0;
 
 class Stars {
 	constructor (x, y) {
@@ -283,12 +302,17 @@ class Stars {
 	this.y = y;
 	this.star = 'images/Star.png';
 	}
-//---- tryin to check if stars are updated 
+//---- collision when player hits the star
+
+	
+
 		update(dt) {
 		 
 			if (this.x === player.x && this.y === player.y) {
-				alert('hi');
-				}
+				this.x = this.x+1;
+				this.star = 'images/Heart.png';
+				grassAccess ++;
+			}
 		}
 	
 		
