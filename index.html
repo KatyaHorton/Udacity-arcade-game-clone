@@ -1,70 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Classic Arcade Game</title>
-    <link rel="stylesheet" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Princess+Sofia" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro:200" rel="stylesheet">
-</head>
-<body>
 	
-	<div id="winLoseContainer">
+   <head>
+      <meta charset="UTF-8">
+      <title>Classic Arcade Game</title>
+      <link rel="stylesheet" href="css/style.css">
+      <link href="https://fonts.googleapis.com/css?family=Princess+Sofia" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro:200" rel="stylesheet">
+   </head>
 	
-	<div id="winDiv">
-	<p id="congrats">congratulations!</p>
-	<iframe src="https://giphy.com/embed/g9582DNuQppxC" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></p>
-	<p>You helped the Arctic-walking-on-water-<span id="winText">princess</span> escape<br> from the castle (without being killed by the icebergs) and get rid of the BUGuardinans <br>with the help of the STARS and the power of LOVE! (and a bit of Java Script) </p>
-	<p>Your time is <span id="winTime"></span></p>
-		<button id="restartAgain">restart</button>
-	</div>
-		
-		<div id="loseDiv">	
-		
-			<p><img id="restartImg" alt="facepalm" src="images/facepalm.png"></p>
-			<p><button id="restartAfterLose">restart</button></p>
-		</div>
-	</div>
-	
-	
-	<header id="header"><h1>Arctic Princess</h1></header>
-	
-	<div id="holder">
-	<div id="timer"></div>
-	<div id="container">
-		<div id="choosePlayerContainer">
-		<p id="begenningText">Chose player depending on your gender:</p>
-	
-		<div id="choosePlayer">
-		
-		<div class="player" id="prince">
-			<p class="ifYou">If you are a boy, choose</p>
-			<p class="playerName">PRINCE</p>
-			<p><img  	src="images/char-boy.png" alt="prince" class="imgPlayer"></p>
-		</div>
-			
-		<div class="player" id="princess">
-			<p class="ifYou">If you are a girl, choose</p>
-			<p class="playerName">PRINCESS</p>
-			<p><img  src="images/char-princess-girl.png" alt="princess" class="imgPlayer"></p>
-		</div>
-
-			<div class="player" id="cat">
-			<p class="ifYou">If you prefer not to say, choose</p>
-			<p class="playerName">CAT</p>
-			<p><img  src="images/char-cat.png" alt="cat" class="imgPlayer"></p>
-		</div>
+   <body>
+      <div id="winLoseContainer">
+		  
+         <div id="winDiv">
+            <p id="congrats">congratulations!</p>
+            <iframe src="https://giphy.com/embed/g9582DNuQppxC" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <p><a href="https://giphy.com/gifs/hero0fwar-karmawhore-rhyming-g9582DNuQppxC"></a></p>
+            <p>You helped the Arctic-walking-on-water-<span id="winText">princess</span> escape<br> from the castle (without being killed by the icebergs) and get rid of the BUGuardinans <br>with the help of the STARS and the power of LOVE! (and a bit of Javascript) </p>
+            <p>Your time is <span id="winTime"></span></p>
+            <button id="restartAgain">restart</button>
+         </div>
+		  
+         <div id="loseDiv">
+            <p><img id="restartImg" alt="facepalm" src="images/facepalm.png"></p>
+            <p><button id="restartAfterLose">restart</button></p>
+         </div>
+      </div>
+	   
+      <header id="header">
+         <h1>Arctic Princess</h1>
+      </header>
+	   
+      <div id="holder">
+         <div id="timer"></div>
+         <div id="container">
+			 
+            <div id="choosePlayerContainer">
+               <p id="begenningText">Chose player depending on your gender:</p>
 				
-		</div>
-	</div>
-	</div>
-	</div>
-	<button id="restart">start</button>
-	
-
-    <script src="js/resources.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/engine.js"></script>
-</body>
+               <div id="choosePlayer">
+                  <div class="player" id="prince">
+                     <p class="ifYou">If you are a boy, choose</p>
+                     <p class="playerName">PRINCE</p>
+                     <p><img  	src="images/char-boy.png" alt="prince" class="imgPlayer"></p>
+                  </div>
+                  <div class="player" id="princess">
+                     <p class="ifYou">If you are a girl, choose</p>
+                     <p class="playerName">PRINCESS</p>
+                     <p><img  src="images/char-princess-girl.png" alt="princess" class="imgPlayer"></p>
+                  </div>
+                  <div class="player" id="cat">
+                     <p class="ifYou">If you prefer not to say, choose</p>
+                     <p class="playerName">CAT</p>
+                     <p><img  src="images/char-cat.png" alt="cat" class="imgPlayer"></p>
+                  </div>
+               </div>
+				
+            </div>
+			 
+         </div>
+      </div>
+	   
+      <button id="restart">start</button>
+	   
+      <script src="js/resources.js"></script>
+      <script src="js/app.js"></script>
+      <script src="js/engine.js"></script>
+   </body>
 </html>
- 
+
