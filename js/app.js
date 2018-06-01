@@ -40,23 +40,29 @@ class Enemy {
 	
 }
 
-//---------------------------
+//--------------------------- KEYBOARD SHOULD BE BLOCKED BEFORE THE START/RESTART BUTTON IS PRESSED 
 
-	document.addEventListener('keyup', function(e) {
+	function keyBoard() {
+	
+		document.removeEventListener('keyup', keyEvents, true);
+		
+	function keyEvents(e) {
     const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
         40: 'down'
     };
-//-------------unable
-    function unableKeyboard() 
-		{
-			player.handleInput(allowedKeys[e.keyCode]);
-		}
-unableKeyboard();			
-});
 
+		player.handleInput(allowedKeys[e.keyCode]); 
+}
+		
+	
+	document.addEventListener('keyup', keyEvents, true); 
+
+	}
+
+		
 
 
 class Player{
@@ -156,6 +162,8 @@ function displayCanvas() {
 	restartButton.innerText = "RESTART";
 	displayIcebergs();
 	displayStars();
+	keyBoard();	
+	// unableKeyboard();	
 };
 
 function restartAfterWin() {
