@@ -6,7 +6,6 @@ const startPosition = function() {
 		grassAccess = 0;
 }
 
-
 //------------- CLASS ENEMIES
 
 class Enemy {
@@ -22,7 +21,7 @@ class Enemy {
 		
 	if (this.x > 510) {
 		this.x = -100;
-		this.speed = 10 + Math.floor(Math.random() * 10);
+		this.speed = 100 + Math.floor(Math.random() * 220);
 	}
 	
 	if ( player.x < this.x + 80 &&
@@ -50,9 +49,15 @@ class Enemy {
         39: 'right',
         40: 'down'
     };
-
-    player.handleInput(allowedKeys[e.keyCode]);
+//-------------unable
+    function unableKeyboard() 
+		{
+			player.handleInput(allowedKeys[e.keyCode]);
+		}
+unableKeyboard();			
 });
+
+
 
 class Player{
 	constructor(x, y) {
@@ -87,7 +92,7 @@ class Player{
 		this.y -=83;
 	}
 	
-	if (keyPress == 'down' && this.y < 405) {
+	if (keyPress == 'down' && this.y < 475) {
 		this.y +=83;
 	}
 	
@@ -109,7 +114,7 @@ const enemyLocation = [63, 144, 230, 317, 400];
 
 enemyLocation.forEach(function(locY){
 
-const enemy = new Enemy(0, locY, 100 + Math.floor(Math.random() * 200));		
+const enemy = new Enemy(0, locY, 400 + Math.floor(Math.random() * 300));		
 allEnemies.push(enemy);
 })
 
@@ -149,9 +154,8 @@ function displayCanvas() {
 	resetTime();
 	startPosition();
 	restartButton.innerText = "RESTART";
-	
-
-displayStars();
+	displayIcebergs();
+	displayStars();
 };
 
 function restartAfterWin() {
@@ -250,14 +254,14 @@ class Iceberg {
 	constructor (x, y) {
 	this.x = x;
 	this.y = y;
-	this.iceberg = 'images/Rock.png';
+	this.iceberg = 'images/bug.png';
 	}
 	
 	
 		update(dt) {
 			
 if (grassAccess === 5) {
-	this.iceberg = 'images/Heart.png';
+	this.iceberg = 'images/Selector.png';
 	}
 			
 }
@@ -268,20 +272,26 @@ if (grassAccess === 5) {
 }
 
 
-const allIcebergs = [];
+let allIcebergs = [];
 const icebergLocation = [0, 100, 200, 300, 400];
 
 
 //------------------DISPLAY ICEBERGS 
 
+function displayIcebergs() {	
 
+	allIcebergs = [];
 
-icebergLocation.forEach(function(locX){
+	icebergLocation.forEach(function(locX)
+							{
 	const iceberg = new Iceberg(locX, -25);
-	allIcebergs.push(iceberg);
+	allIcebergs.push(iceberg);	
+		});}
+
+
 	
 	
-})
+
 
 
 
@@ -342,7 +352,7 @@ function displayStars() {
 	});}
 
 
-
+displayIcebergs();
 //--- STARS/PLAYER COLLISION 
 
 
