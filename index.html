@@ -12,15 +12,17 @@
 	<div id="winLoseContainer">
 	
 	<div id="winDiv">
-	<p>CONGRATULATIONS!</p>
+	<p id="congrats">congratulations!</p>
+	<iframe src="https://giphy.com/embed/g9582DNuQppxC" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></p>
 	<p>You helped the Arctic-walking-on-water-<span id="winText">princess</span> escape<br> from the castle (without being killed by the icebergs) and get rid of the BUGuardinans <br>with the help of the STARS and the power of LOVE! (and a bit of Java Script) </p>
 	<p>Your time is <span id="winTime"></span></p>
-		<button id="restartAgain">Restart</button>
+		<button id="restartAgain">restart</button>
 	</div>
 		
-		<div id="loseDiv">	<p>YOU LOST </p>
-		<button id="restartAfterLose">Restart</button>
-			<p><img alt="facepalm" src="images/facepalm.png"></p>
+		<div id="loseDiv">	
+		
+			<p><img id="restartImg" alt="facepalm" src="images/facepalm.png"></p>
+			<p><button id="restartAfterLose">restart</button></p>
 		</div>
 	</div>
 	
@@ -57,7 +59,7 @@
 	</div>
 	</div>
 	</div>
-	<button id="restart">START</button>
+	<button id="restart">start</button>
 	
 
     <script src="js/resources.js"></script>

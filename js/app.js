@@ -57,12 +57,11 @@ class Enemy {
 		player.handleInput(allowedKeys[e.keyCode]); 
 }
 		
-	
 	document.addEventListener('keyup', keyEvents, true); 
 
 	}
 
-		
+	keyBoard();	
 
 
 class Player{
@@ -159,11 +158,10 @@ function displayCanvas() {
 	timer.innerText = "0 min: 0 sec";
 	resetTime();
 	startPosition();
-	restartButton.innerText = "RESTART";
+	restartButton.innerText = "restart";
 	displayIcebergs();
 	displayStars();
-	keyBoard();	
-	// unableKeyboard();	
+	
 };
 
 function restartAfterWin() {
@@ -199,7 +197,7 @@ function winDivAppear() {
 };
 
 function winDivDissapear() {
-	winLoseContainer.style.transform = "translate(0, -890px)";
+	winLoseContainer.style.transform = "translate(0, -930px)";
 	winLoseContainer.style.transition = "1s";
 }
 
@@ -231,7 +229,7 @@ const ifYous = document.querySelectorAll('.ifYou');
 	 	ifYou.innerText = 'THE';
 	 	};
 	 
-	 	playerDiv.style.backgroundColor = 'antiquewhite';
+	 	playerDiv.style.backgroundColor = 'whitesmoke';
 	 	player.player = playerImg;
 	 	winText.innerText = winT;
 	 	removeDiv1.style.display = 'none';

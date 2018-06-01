@@ -1,19 +1,29 @@
 	body {
 		text-align: center;
 		margin: 0;
-		padding: 5% 0	;
+		padding: 0	;
 		background-color: lightyellow;
 		color: darkslateblue;
 		font-family: 'Princess Sofia', cursive;
+		
 	}
 
 	#container {
 		position: relative;
 		text-align: center;
 		font-family: 'Source Sans Pro', sans-serif;
+		height: 650px;	
+		margin-top: -25px;
 
 	}
 
+
+#header {
+	font-size: 35px;
+	height: 130px;
+	padding: 0;
+	margin: 0;	
+}
 
 	#holder {
 		text-align: center;
@@ -22,21 +32,62 @@
 
 	}
 
+#timer {
+	font-size: 30px;
+	margin-top: -20px;
+}
+
 	#winLoseContainer {
 		position: relative;
 		width: 100%;
-		height: 850px;
+		height: 890px;
 		background-color: #bcd2e5;
 		position: absolute;
-		transform: translate(0, -890px);
+		transform: translate(0, -940px);
 		transition: transform 1.5s ease;
 		z-index: 15;		
 	}
 
-	#restart {
-		display: none;
-		padding-top: 20px;
+	#restart, #restartAfterLose, #restartAgain {
+	
+		margin-top: -10px;
+		font-family: 'Princess Sofia', cursive;
+		height:85px;
+		width: 140px;
+		background-color: blanchedalmond;
+		color: darkred;
+		font-style: oblique;
+		font-size: 50px;
+		border-radius: 5%;	
+		border-color: darkred;
+		margin-top: -40px;	
 	}
+#restart {
+	display: none; }
+
+#restart:hover, #restartAfterLose:hover {
+	cursor: pointer;
+	box-shadow: 0px 0px 2px 2px rgba(199,87,102,1);	
+}
+
+#restartImg {
+	
+	width: 450px;
+	border-radius: 2%;
+	border: 2px solid rgba(199,87,102,1);
+}
+
+#congrats {
+	font-size: 80px;
+	
+}
+
+.giphy-embed {
+	margin-top: -30px;
+	border-radius: 2%;
+	border: 2px solid rgba(199,87,102,1);
+}
+
 
 	#winDiv, #loseDiv {
 		width:100%;
@@ -47,11 +98,16 @@
 	#winDiv {
 		z-index: 10;
 		background-color: beige;
+		font-size: 30px;
+		
 	}
 
-
 	#loseDiv {
-		background-color: red;
+				
+		background-color: antiquewhite;
+		display: grid;
+		
+		
 	}
 
 	#choosePlayerContainer {
@@ -61,14 +117,14 @@
 		background-color: antiquewhite;
 		z-index: 10px;
 		position: absolute;
-		
 
 	}
 
 #begenningText {
 	
-	height:80px;
+	height:40px;
 	font-size: 30px;
+	font-weight: bold;
 }
 
 	#choosePlayer {
@@ -78,29 +134,37 @@
 		flex-direction: row;
 		width: 700px;
 		height: 70%;
-
+		border: 1px solid brown;
+		padding: 7px;
+		border-radius: 2%;	
+		background-color: whitesmoke;	
 	}
 
 	.player {
 		width: 30%;
-		height: 100%;
-		background-color: aqua;
+		height: 90%;
+		background-color:whitesmoke;
 		font-size: 24px;
+		border-radius: 2%;
+		margin-top: 20px;
 	}
 
 	.player:hover {
 
-		background-color: aquamarine;
+		background-color: whitesmoke;
 		font-weight: bold;
+		cursor: pointer;
+		box-shadow: 0px 0px 2px 2px rgba(199,87,102,1);	
 		
 	}
 	
 
 .imgPlayer {
 	background-color: whitesmoke;
+	border-radius: 2%;	
 }
 	.imgPlayer:hover {
-		width: 150px;
+		width: 140px;
 	}
 
 
