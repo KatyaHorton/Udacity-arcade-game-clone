@@ -39,6 +39,8 @@ class Enemy {
 const allEnemies = [];
 const enemyLocation = [63, 144, 230, 317, 400];
 
+let gameStarted = false;
+
 enemyLocation.forEach(function (locY) {
 
 	const enemy = new Enemy(0, locY, 400 + Math.floor(Math.random() * 300));
@@ -90,6 +92,10 @@ class Player {
 	}
 
 	handleInput(keyPress) {
+		
+		if (!gameStarted){
+            return;
+        }
 
 		if (keyPress == 'left' && this.x > 0) {
 			this.x -= 102;
@@ -320,7 +326,7 @@ function displayCanvas() {
 	restartButton.innerText = "restart";
 	displayIcebergs();
 	displayStars();
-
+	gameStarted = true;
 };
 
 function restartAfterWin() {
@@ -366,3 +372,4 @@ function loseDivAppear() {
 	loseDiv.style.zIndex = 11;
 	winLoseContainer.style.transition = "0s";
 }
+
