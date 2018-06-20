@@ -66,8 +66,6 @@ If you won the game press the restart button if you want to try again.
 Try to improve your time. 
 
 
-
-
 ## Contributing
 
 All your comments and requests are very welcome! If you have anu suggestions, please let me know! 
